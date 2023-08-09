@@ -25,14 +25,10 @@
     flex-direction: row;
 }
 
-// i need gaps between columns of 1% width
-// .form-col-6 {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     width: 49%;
-//     height: 100%;
-//     margin: 0 1%;
-// }
-
+//"bus-card-wrapper" class with styles to align div in the middle of view
+.bus-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

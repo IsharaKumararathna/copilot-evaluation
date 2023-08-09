@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DatePicker } from '@progress/kendo-react-dateinputs';
 import { TextBox } from '@progress/kendo-react-inputs';
-import { Card, CardHeader, CardTitle, CardBody, CardActions } from '@progress/kendo-react-layout';
+import { Card, CardBody, CardActions } from '@progress/kendo-react-layout';
 import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 import { Error, Label } from '@progress/kendo-react-labels';
@@ -227,11 +227,6 @@ function App() {
   return (
     <div className="bus-card-wrapper">
       <Card>
-        <CardHeader>
-          <CardTitle>
-            <h3>Card Title</h3>
-          </CardTitle>
-        </CardHeader>
         <CardBody>
           {/* use a kendo form inside the card body 
             include first name, email, phone number, birthdate and submit and cancel buttons
@@ -274,6 +269,7 @@ function App() {
                           <div className="form-col-6">
                             <Label editorId={'email'}>Email</Label>
                             <Field
+                              id={'email'}
                               name={'email'}
                               component={TextBox}
                               // validator={emailValidator}
@@ -286,6 +282,7 @@ function App() {
                           <div className="form-col-6">
                             <Label editorId={'phoneNumber'}>Phone number</Label>
                             <Field
+                              id={'phoneNumber'}
                               name={'phoneNumber'}
                               component={TextBox}
                               // validator={phoneNumberValidator}
