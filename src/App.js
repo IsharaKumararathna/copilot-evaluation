@@ -35,13 +35,9 @@ function App() {
       error: ''
     }
   }),
-  // initialize state for is Dirty for form
   [isDirty, setIsDirty] = useState(false),
   onFormSubmit = (dataItem) => {
-    // set is dirty to true
     setIsDirty(true);
-    // set the state for form data
-    // fire all the validators
     firstNameValidator(dataItem.firstName);
     lastNameValidator(dataItem.lastName);
     emailValidator(dataItem.email);
@@ -72,7 +68,6 @@ function App() {
     });
     console.log(dataItem);
   },
-  // define validators for fields
   firstNameValidator = (value) => {
     if (value === '') {
       return 'First name is required';
@@ -86,7 +81,6 @@ function App() {
     return '';
   },
   emailValidator = (value) => {
-    // define email regex
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (value === '') {
       return 'Email is required';
@@ -97,13 +91,11 @@ function App() {
     return '';
   },
   phoneNumberValidator = (value) => {
-    // define phone number regex
     const phoneNumberRegex = /^\d{10}$/;
     if (value === '') {
       return 'Phone number is required';
     } else if (!phoneNumberRegex.test(value)) {
       console.log(value, "hello");
-      // debugger;
       return 'Phone number is invalid';
     }
     return '';
@@ -116,7 +108,6 @@ function App() {
     }
     return '';
   },
-  // generate a function that takes js date object and prints out a string in the format of MM/DD/YYYY
   formatDate = (date) => {
     if (date) {
       const month = date.getMonth() + 1,
@@ -126,7 +117,6 @@ function App() {
     } 
     return '';
   },
-  // write on change events for each field
   onFirstNameChange = (e) => {
     const value = e.value;
     const error = firstNameValidator(value);
@@ -192,7 +182,6 @@ function App() {
       }
     }));
   },
-  // function to reset form
   resetForm = () => {
     setFormData({
       firstName: {
@@ -223,15 +212,10 @@ function App() {
     });
   };
 
-  // this is a component that contains with a form inside a kendo card
   return (
     <div className="bus-card-wrapper">
       <Card>
         <CardBody>
-          {/* use a kendo form inside the card body 
-            include first name, email, phone number, birthdate and submit and cancel buttons
-            for text fields use BUS text box, birth date use BUS date picker and submit and cancel buttons use BUS buttons
-          */}
           <Form
             onSubmit={onFormSubmit}
             render={(formRenderProps) => (
@@ -323,7 +307,6 @@ function App() {
         </CardBody>
         <CardActions>
             <div>
-              {/* i want to display the form data onSubmit on this div */}
               <h3>Form Data</h3>
               <div>
                 <p>First Name: {formData.firstName.dataItem}</p>
