@@ -13,8 +13,4 @@ const AddAssignee = () => {
   );
 };
 
-AddAssignee.propTypes = {};
-
-AddAssignee.defaultProps = {};
-
 export default AddAssignee;
