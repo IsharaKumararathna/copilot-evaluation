@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import AddAssignee from './components/add-assignee/components/add-assignee';
+import AddAssignee from './components/add-assignee/add-assignee';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 function App() {
