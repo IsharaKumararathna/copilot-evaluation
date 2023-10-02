@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { DatePicker } from '@progress/kendo-react-dateinputs';
-import { TextBox } from '@progress/kendo-react-inputs';
-import { Card, CardHeader, CardTitle, CardBody, CardActions } from '@progress/kendo-react-layout';
-import { Form, Field, FormElement } from '@progress/kendo-react-form';
-import { Button } from '@progress/kendo-react-buttons';
-import { Error, Label } from '@progress/kendo-react-labels';
+import React from 'react';
 import './App.scss';
+import AddAssignee from './components/add-assignee/components/add-assignee';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 function App() {
+  const client = new ApolloClient({
+    uri: 'https://localhost:44356/BUS.APIs.GraphQLServer.P3.Kvalitet.InternalApp',
+    cache: new InMemoryCache()
+  });
 
   return (
-    <div className="bus-card-wrapper">
-      <span>Test view</span>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="app-container">
+        <AddAssignee />
+      </div>
+    </ApolloProvider>
   );
 }
 
